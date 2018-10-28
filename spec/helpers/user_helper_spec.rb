@@ -2,22 +2,21 @@
 
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the UserHelper. For example:
-#
-# describe UserHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-
-
+def create_post
+  click_link 'New image'
+  fill_in 'Description', with: "This is a description"
+  attach_file('Image', Rails.root + 'public/uploads/image_post/image/6/Screen_Shot_2018-09-11_at_23.26.44.png')
+  click_button 'Create Image post'
+end
 def user_sign_in
-  @user = build(:user)
   visit '/users/sign_in'
   fill_in 'user_email', with: @user.email
   fill_in 'user_password', with: @user.password
+  click_button 'Log in'
+end
+def user2_sign_in
+  visit '/users/sign_in'
+  fill_in 'user_email', with: @user_2.email
+  fill_in 'user_password', with: @user_2.password
   click_button 'Log in'
 end

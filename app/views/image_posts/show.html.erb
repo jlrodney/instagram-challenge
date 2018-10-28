@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Description:</strong>
+  <%= @image_post.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag(@image_post.image_url, width: 600) if @image_post.image.present? %>
+ </p>
+
+ <%= link_to 'Edit', edit_image_post_path(@image_post) %> |
+ <%= link_to 'Back', image_posts_path %>

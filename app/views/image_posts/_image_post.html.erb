@@ -1,0 +1,11 @@
+
+
+<div class='image_post' id="image_post_<%=image_post.id.to_s %>">
+<p><%= truncate(image_post.description, length: 150) %></p>
+
+<% if image_post.user_id == current_user.id %>
+<p><%= link_to 'Edit', edit_image_post_path(image_post) %></p>
+<% end %>
+<%= image_tag(image_post.image_url, width: 600) if image_post.image.present? %>
+</div>
+<hr>
